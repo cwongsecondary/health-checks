@@ -31,10 +31,18 @@ def main():
         (check_reboot, "Pending Reboot"),
         (check_root_full,"Root partition full"),
     ]
+
+    # Show more than 1 message IF more than 1 Check Failed via use of a Boolean Variable
+    everything_ok = True
+
     for check, msg in checks:
         if check():
             print(msg)
-            sys.exit(1)
+            everything_ok=False
+
+    if not everything_ok:
+        sys.exit(1)
+
 
 """
 REPLACED with the Above
@@ -46,8 +54,7 @@ REPLACED with the Above
         sys.exit(1)
 """
 
-
-    print("Everything ok")
-    sys.exit(0)
+print("Everything ok")
+sys.exit(0)
 
 
