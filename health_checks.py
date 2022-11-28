@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, shutil, sys, socket
+import os, shutil, sys, socket, psutil
 
 
 def check_reboot():
